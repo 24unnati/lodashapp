@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import _ from "lodash";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const Concat = () => {
   const [inputConcatData, setInputConcatData] = useState({
@@ -49,54 +51,44 @@ const Concat = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span style={{ fontSize: "18px", fontWeight: "600" }}>
-            Add Value for concat function :
-          </span>
-          <input
+      <div className="d-flex flex-row">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label className="fs-4">Concatenate two values</Form.Label>
+          <Form.Control
+            className="shadow p-3 mb-2 bg-body rounded"
+            style={{ width: "500px" }}
+            type="text"
             name="name1"
             value={inputConcatData.name1}
             onChange={handleChange}
-            type="text"
-            placeholder="Enter value like 1,2,... "
-            style={{
-              height: "30px",
-              width: "300px",
-              fontSize: "20px",
-              margin: "20px",
-            }}
+            placeholder="Enter Numeric value..."
+            aria-label="First name"
           />
-          <input
+          <Form.Control
+            className="shadow-lg p-3 mb-2 bg-body rounded"
+            style={{ width: "500px" }}
+            type="text"
             name="name2"
             value={inputConcatData.name2}
             onChange={handleChange}
-            type="text"
-            placeholder="Enter value like 1,2,... "
-            style={{
-              height: "30px",
-              width: "300px",
-              fontSize: "20px",
-              margin: "30px",
-            }}
+            placeholder="Enter Numeric value..."
+            aria-label="Last name"
           />
-
-          <button
-            type="submit"
-            style={{
-              height: "30px",
-              width: "100px",
-              fontSize: "20px",
-              backgroundColor: "blue",
-              color: "white",
-            }}
+        </Form.Group>
+        <div className="d-flex  align-items-end">
+          <Button
+            variant="light"
+            className="btn btn-outline-success mx-3 btn-lg my-4"
+            onClick={handleSubmit}
           >
             Submit
-          </button>
-        </label>
-      </form>
-      <div style={{ fontSize: "18px", fontWeight: "500" }}>
-        {concatnewdata.length > 0 && <p>concat value: {concat}</p>}
+          </Button>
+        </div>
+      </div>
+      <div>
+        <div className="fs-4 fw-bold">
+          {concatnewdata.length > 0 && <p>Concat value: {concat}</p>}
+        </div>
       </div>
     </div>
   );

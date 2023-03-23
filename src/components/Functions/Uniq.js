@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import _ from "lodash";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const Uniq = () => {
   const [inputUniqData, setInputUniqData] = useState({
@@ -36,37 +38,32 @@ const Uniq = () => {
 
   return (
     <div>
-      <label>
-        <span style={{ fontSize: "18px", fontWeight: "600" }}>
-          Add Value for uniq function :
-        </span>
-        <input
-          name="name"
-          value={inputUniqData.name}
-          onChange={handleChange}
-          type="text"
-          placeholder="Enter value like 1,2,... "
-          style={{
-            height: "30px",
-            width: "300px",
-            fontSize: "20px",
-            margin: "30px",
-          }}
-        />
-        <button
-          onClick={handleSubmit}
-          style={{
-            height: "30px",
-            width: "100px",
-            fontSize: "20px",
-            backgroundColor: "blue",
-            color: "white",
-          }}
-        >
-          Submit
-        </button>
-      </label>
-      <div style={{ fontSize: "18px", fontWeight: "500" }}>
+      <div className="d-flex flex-row">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label className="fs-4">Remove the duplicate values</Form.Label>
+          <Form.Control
+            className="shadow p-3 mb-2 bg-body rounded"
+            style={{ width: "500px" }}
+            type="text"
+            name="name"
+            value={inputUniqData.name}
+            onChange={handleChange}
+            placeholder="Enter Numeric value..."
+          />
+          {/* <Form.Text className="text-muted">Type numeric value only</Form.Text> */}
+        </Form.Group>
+        <div className="d-flex  align-items-center">
+          <Button
+            variant="light"
+            className="btn btn-outline-success mx-3 btn-lg my-5"
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+        </div>
+      </div>
+
+      <div className="fs-4 fw-bold">
         {uniqnewdata.length > 0 && <p>Uniq value: {uniq}</p>}
       </div>
     </div>

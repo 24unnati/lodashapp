@@ -7,12 +7,16 @@ import Concat from "./Functions/Concat";
 
 export const Lodash = () => {
   return (
-    <div>
-      <h1 style={{ margin: "50px" }}>Lodash function</h1>
+    <div style={{ padding: "3rem" }}>
+      <h1 className="my-5">Lodash function</h1>
       <Max />
+      <hr />
       <Uniq />
+      <hr />
       <Reverse />
+      <hr />
       <Sort />
+      <hr />
       <Concat />
     </div>
   );
