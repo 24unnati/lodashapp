@@ -1,9 +1,10 @@
 import "./App.css";
+import { Lodash } from "./components/Lodash";
 
 function App() {
   return (
     <div className="App">
-      <h1>Lodash Functions</h1>
+      <Lodash />
     </div>
   );
 }
