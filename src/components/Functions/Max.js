@@ -9,12 +9,18 @@ const Max = () => {
   const [maxnewdata, setMaxNewData] = useState([]);
 
   const handleChange = (e) => {
-    setInputMaxData({ ...inputMaxData, [e.target.name]: e.target.value });
+    const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
+    if (regex.test(e.target.value)) {
+      setInputMaxData({ ...inputMaxData, [e.target.name]: e.target.value });
+    }
   };
   let { name } = inputMaxData;
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMaxNewData([...maxnewdata, name]);
+    if (name.trim() !== "") {
+      setMaxNewData([...maxnewdata, name]);
+      setInputMaxData({ name: "" });
+    }
     // setInputMaxData({ name: "" });
   };
 

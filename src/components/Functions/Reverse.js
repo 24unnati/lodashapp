@@ -8,15 +8,22 @@ const Reverse = () => {
 
   const [reversenewdata, setReverseNewData] = useState([]);
   const handleChange = (e) => {
-    setInputReverseData({
-      ...inputReverseData,
-      [e.target.name]: e.target.value,
-    });
+    const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
+    if (regex.test(e.target.value)) {
+      setInputReverseData({
+        ...inputReverseData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
   let { name } = inputReverseData;
   const handleSubmit = (e) => {
     e.preventDefault();
-    setReverseNewData([...reversenewdata, name]);
+    if (name.trim() !== "") {
+      setReverseNewData([...reversenewdata, name]);
+      setInputReverseData({ name: "" });
+    }
+
     // setInputReverseData({ name: "" });
   };
 

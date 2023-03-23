@@ -8,12 +8,19 @@ const Uniq = () => {
 
   const [sortnewdata, setSortNewData] = useState([]);
   const handleChange = (e) => {
-    setInputSortData({ ...inputSortData, [e.target.name]: e.target.value });
+    const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
+    if (regex.test(e.target.value)) {
+      setInputSortData({ ...inputSortData, [e.target.name]: e.target.value });
+    }
   };
+
   let { name } = inputSortData;
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSortNewData([...sortnewdata, name]);
+    if (name.trim() !== "") {
+      setSortNewData([...sortnewdata, name]);
+      setInputSortData({ name: "" });
+    }
     // setInputSortData({ name: "" });
   };
 

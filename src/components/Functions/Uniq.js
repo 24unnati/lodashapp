@@ -8,12 +8,19 @@ const Uniq = () => {
 
   const [uniqnewdata, setUniqNewData] = useState([]);
   const handleChange = (e) => {
-    setInputUniqData({ ...inputUniqData, [e.target.name]: e.target.value });
+    const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
+    if (regex.test(e.target.value)) {
+      setInputUniqData({ ...inputUniqData, [e.target.name]: e.target.value });
+    }
   };
   let { name } = inputUniqData;
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUniqNewData([...uniqnewdata, name]);
+    if (name.trim() !== "") {
+      setUniqNewData([...uniqnewdata, name]);
+      setInputUniqData({ name: "" });
+    }
+
     // setInputUniqData({ name: "" });
   };
 
