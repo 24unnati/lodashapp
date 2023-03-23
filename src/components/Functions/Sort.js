@@ -21,9 +21,8 @@ const Uniq = () => {
     e.preventDefault();
     if (name.trim() !== "") {
       setSortNewData([...sortnewdata, name]);
-      setInputSortData({ name: "" });
+      //   setInputSortData({ name: "" });
     }
-    // setInputSortData({ name: "" });
   };
 
   const value = sortnewdata

@@ -23,10 +23,9 @@ const Reverse = () => {
     e.preventDefault();
     if (name.trim() !== "") {
       setReverseNewData([...reversenewdata, name]);
-      setInputReverseData({ name: "" });
+    //   setInputReverseData({ name: "" });
     }
 
-    // setInputReverseData({ name: "" });
   };
 
   const value = reversenewdata

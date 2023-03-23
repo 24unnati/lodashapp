@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import _ from "lodash";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -17,7 +17,8 @@ const Max = () => {
       return parseInt(item);
     });
   const max = `${_.max(value)}`;
-  console.log(max);
+  console.log({ max });
+  //   console.log({ value });
 
   const handleChange = (e) => {
     const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
@@ -32,9 +33,8 @@ const Max = () => {
       setMaxNewData([...maxnewdata, name]);
       //   setInputMaxData({ name: "" });
     }
-    // setInputMaxData({ name: "" });
   };
-
+  console.log({ maxnewdata });
   return (
     <div>
       <div className="d-flex flex-row">

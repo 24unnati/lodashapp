@@ -33,10 +33,8 @@ const Concat = () => {
         inputConcatData.name1,
         inputConcatData.name2,
       ]);
-      setInputConcatData({ name: "" });
+      //   setInputConcatData({ name: "" });
     }
-
-    // setInputConcatData({ name1: "", name2: "" });
   };
 
   const value = concatnewdata

@@ -20,10 +20,8 @@ const Uniq = () => {
     e.preventDefault();
     if (name.trim() !== "") {
       setUniqNewData([...uniqnewdata, name]);
-      setInputUniqData({ name: "" });
+      //   setInputUniqData({ name: "" });
     }
-
-    // setInputUniqData({ name: "" });
   };
 
   const value = uniqnewdata
