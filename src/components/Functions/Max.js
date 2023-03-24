@@ -18,7 +18,7 @@ const Max = () => {
     });
   const max = `${_.max(value)}`;
   console.log({ max });
-  //   console.log({ value });
+  console.log({ value });
 
   const handleChange = (e) => {
     const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
@@ -34,6 +34,7 @@ const Max = () => {
       //   setInputMaxData({ name: "" });
     }
   };
+
   console.log({ maxnewdata });
   return (
     <div>

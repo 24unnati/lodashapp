@@ -9,7 +9,14 @@ export const Lodash = () => {
   return (
     <div style={{ padding: "3rem" }}>
       <h1 className="my-5">Lodash function</h1>
-      <Max />
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <span>
+          <Max />{" "}
+        </span>
+        <span>
+          <Max />{" "}
+        </span>
+      </div>
       <hr />
       <Uniq />
       <hr />
