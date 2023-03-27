@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -16,7 +16,9 @@ const Max = () => {
     .map(function (item) {
       return parseInt(item);
     });
-  const max = `${_.max(value)}`;
+
+  let max = `${_.max(value)}`;
+
   console.log({ max });
   console.log({ value });
 
@@ -27,10 +29,15 @@ const Max = () => {
     }
   };
   let { name } = inputMaxData;
+
+  useEffect(() => {
+    console.log("my data", { maxnewdata });
+  }, [maxnewdata]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() !== "") {
-      setMaxNewData([...maxnewdata, name]);
+      setMaxNewData([name]);
       //   setInputMaxData({ name: "" });
     }
   };

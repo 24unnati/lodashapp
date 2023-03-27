@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -19,10 +19,15 @@ const Reverse = () => {
     }
   };
   let { name } = inputReverseData;
+
+  useEffect(() => {
+    console.log("my data", { reversenewdata });
+  }, [reversenewdata]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() !== "") {
-      setReverseNewData([...reversenewdata, name]);
+      setReverseNewData([name]);
       //   setInputReverseData({ name: "" });
     }
   };

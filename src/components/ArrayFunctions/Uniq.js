@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -7,23 +7,7 @@ const Uniq = () => {
   const [inputUniqData, setInputUniqData] = useState({
     name: "",
   });
-
   const [uniqnewdata, setUniqNewData] = useState([]);
-  const handleChange = (e) => {
-    const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
-    if (regex.test(e.target.value)) {
-      setInputUniqData({ ...inputUniqData, [e.target.name]: e.target.value });
-    }
-  };
-  let { name } = inputUniqData;
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name.trim() !== "") {
-      setUniqNewData([...uniqnewdata, name]);
-      //   setInputUniqData({ name: "" });
-    }
-  };
-
   const value = uniqnewdata
     .join(",")
     .split(",")
@@ -31,8 +15,29 @@ const Uniq = () => {
       return parseInt(item);
     });
 
-  const uniq = `${_.uniq(value)}`;
+  let uniq = `${_.uniq(value)}`;
   console.log(uniq);
+
+  const handleChange = (e) => {
+    const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
+    if (regex.test(e.target.value)) {
+      setInputUniqData({ ...inputUniqData, [e.target.name]: e.target.value });
+    }
+  };
+
+  let { name } = inputUniqData;
+
+  useEffect(() => {
+    console.log("my data", { uniqnewdata });
+  }, [uniqnewdata]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name.trim() !== "") {
+      setUniqNewData([name]);
+      //   setInputUniqData({ name: "" });
+    }
+  };
 
   return (
     <div>

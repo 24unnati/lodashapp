@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -11,28 +11,6 @@ const Concat = () => {
 
   const [concatnewdata, setConcatNewData] = useState([]);
 
-  const handleChange = (e) => {
-    const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
-    if (regex.test(e.target.value)) {
-      setInputConcatData({
-        ...inputConcatData,
-        [e.target.name]: e.target.value,
-      });
-    }
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { name1, name2 } = inputConcatData;
-    if (name1.trim() !== "" && name2.trim() !== "") {
-      setConcatNewData([
-        ...concatnewdata,
-        inputConcatData.name1,
-        inputConcatData.name2,
-      ]);
-      //   setInputConcatData({ name: "" });
-    }
-  };
-
   const value = concatnewdata
     .join(",")
     .split(",")
@@ -42,6 +20,28 @@ const Concat = () => {
 
   const concat = `${_.concat(_.uniq(value))}`;
   console.log(concat);
+
+  const handleChange = (e) => {
+    const regex = /^[0-9,\s]*$/; // regex to allow only numbers, commas and spaces
+    if (regex.test(e.target.value)) {
+      setInputConcatData({
+        ...inputConcatData,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
+  useEffect(() => {
+    console.log("my data", { concatnewdata });
+  }, [concatnewdata]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name1, name2 } = inputConcatData;
+    if (name1.trim() !== "" && name2.trim() !== "") {
+      setConcatNewData([inputConcatData.name1, inputConcatData.name2]);
+      //   setInputConcatData({ name: "" });
+    }
+  };
 
   return (
     <div>
