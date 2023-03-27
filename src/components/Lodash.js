@@ -1,30 +1,100 @@
 import React from "react";
-import Max from "./Functions/Max";
-import Uniq from "./Functions/Uniq";
-import Sort from "./Functions/Sort";
-import Reverse from "./Functions/Reverse";
-import Concat from "./Functions/Concat";
+import Max from "./ArrayFunctions/Max";
+import Uniq from "./ArrayFunctions/Uniq";
+import Sort from "./ArrayFunctions/Sort";
+import Reverse from "./ArrayFunctions/Reverse";
+import Concat from "./ArrayFunctions/Concat";
+import Include from "./StringFunctions/Include";
+import Count from "./StringFunctions/Count";
+import Convert from "./StringFunctions/Convert";
+import Trim from "./StringFunctions/Trim";
+import Split from "./StringFunctions/Split";
 
 export const Lodash = () => {
   return (
-    <div style={{ padding: "3rem" }}>
-      <h1 className="my-5">Lodash function</h1>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div style={{ padding: "2rem" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
         <span>
+          <h2 className="my-5">Lodash Array function</h2>
           <Max />{" "}
         </span>
         <span>
-          <Max />{" "}
+          <h2 className="my-5">Lodash String function</h2>
+          <Split />
         </span>
       </div>
       <hr />
-      <Uniq />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <span>
+          {" "}
+          <Uniq />
+        </span>
+        <span>
+          <Trim />
+        </span>
+      </div>
+
       <hr />
-      <Reverse />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <span>
+          {" "}
+          <Reverse />
+        </span>
+        <span>
+          <Convert />
+        </span>
+      </div>
+
       <hr />
-      <Sort />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <span>
+          {" "}
+          <Sort />
+        </span>
+        <span>
+          <Count />
+        </span>
+      </div>
+
       <hr />
-      <Concat />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <span>
+          <Concat />
+        </span>
+        <span>
+          <Include />
+        </span>
+      </div>
     </div>
   );
 };
